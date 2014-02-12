@@ -26,24 +26,20 @@ void skipBlank() {
 }
 
 void skipComment() {
-  int state = 0;
+	int state = 0;
   while ((currentChar != EOF) && (state < 2)) {
-    switch (charCodes[currentChar]) {
-    case CHAR_TIMES:
-      state = 1;
-      break;
-    case CHAR_RPAR:
+    if (charCodes[currentChar]== CHAR_TIMES)   state = 1;
+    else (charCodes[currentChar]== CHAR_RPAR)
       if (state == 1) state = 2;
       else state = 0;
-      break;
-    default:
-      state = 0;
+    else   state = 0;
     }
     readChar();
   }
   if (state != 2) 
     error(ERR_END_OF_COMMENT, lineNo, colNo);
-}
+ 
+} 
 
 Token* readIdentKeyword(void) {
   Token *token = makeToken(TK_NONE, lineNo, colNo);
