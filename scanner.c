@@ -118,27 +118,6 @@ Token* readConstChar(void) {
 }
 
 
-
-void skipBlank() {
-  // TODO
-}
-
-void skipComment() {
-  // TODO
-}
-
-Token* readIdentKeyword(void) {
-  // TODO
-}
-
-Token* readNumber(void) {
-  // TODO
-}
-
-Token* readConstChar(void) {
-  // TODO
-}
-
 Token* getToken(void) {
   Token *token;
   int ln, cn;
